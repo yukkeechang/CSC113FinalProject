@@ -11,6 +11,7 @@ while(i < len(x)) :
         dicti[x[i]] = dicti[x[i]]+1
         i = i+1
     #TODO: check for special blank characters like return, tab, newline (doesn't work)
+    #TODO: get number input from part a then make the others group 
     if (x[i] == type('\t')) :
         dicti[x[i]] = "newtab"
         i = i+1
