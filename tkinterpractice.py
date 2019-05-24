@@ -2,6 +2,7 @@ import tkinter
 from tkinter import *
 from tkinter import ttk
 import turtle
+import random
 
 
 #main window that surrounds the interface
@@ -51,15 +52,21 @@ turt = turtle.RawTurtle(canvas)
 #turt.penup()
 #turt = turtle.Turtle()
 
+
+
+
+
 dict = { "a":10, "b":10, "c":10, "d":10, "e":10, "f": 10, "g": 10}
-color = { 1:"#10a96d", 2:"#29d6a5", 3:"green", 4:"gray", 5: "black", 6:"purple", 7:"grey", 8:"#d64e29", 9:"#ff0095", 10:"#ff1100", 11:"#f600ff"}
 turt.sety(-100)
 j=1
+
 #todo:set j to the number inputted in tkinter
 while(j < 6) :
     for i in dict :
+        ###color generator
+        ranColor = "#%06x" % random.randint(0, 0xFFFFFF)
         print("i ", i)
-        turt.fillcolor(color[j])
+        turt.fillcolor(ranColor)
         j += 1
         turt.begin_fill()
         turt.circle(100, dict[i]*360/100)
