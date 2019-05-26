@@ -3,37 +3,37 @@ file  = open("words.txt", "r")
 #read file and turn contents into a string
 x = file.read()
 
-#load all chars into dictionary
-dicti = {}
+#load all chars into charactersonary
+characters = {}
 i = 0
 while(i < len(x)) :
-    if(x[i] in dicti) :
-        dicti[x[i]] = dicti[x[i]]+1
+    if(x[i] in characters) :
+        characters[x[i]] = characters[x[i]]+1
         i = i+1
     #TODO: check for special blank characters like return, tab, newline (doesn't work)
-    #TODO: get number input from part a then make the others group 
+    #TODO: get number input from part a then make the others group
     if (x[i] == type('\t')) :
-        dicti[x[i]] = "newtab"
+        characters[x[i]] = "newtab"
         i = i+1
     if (x[i] == type('\n')) :
-        dicti[x[i]] = "new line"
+        characters[x[i]] = "new line"
         i = i+1
     else :
-        dicti[x[i]] = 1
+        characters[x[i]] = 1
         i = i+1
 
 
-# for j in dicti:
-#     print(j, " ", dicti[j])
+# for j in characters:
+#     print(j, " ", characters[j])
 
 
-#get probability of each letter from dictionary
+#get probability of each letter from charactersonary
 dict2 = {}
 i = 0
-for k in dicti :
-    #move key to new dictionary
+for k in characters :
+    #move key to new charactersonary
     dict2[k] = k
-    percent = (dicti[k]/len(x))*100
+    percent = round((characters[k]/len(x))*100, 2)
     dict2[k] = percent
     i = i+1
 
