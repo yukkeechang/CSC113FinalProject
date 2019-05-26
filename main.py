@@ -24,9 +24,8 @@ label.pack()
 entry = Entry(root)
 entry.pack()
 
+###getting dictionary of character and their percentage frequency from percentages.py module
 def printChart() :
-
-    ###getting dictionary of character and their percentage frequency from percentages.py module
 
     ###puts turtle module in tkinter using canvas method
     turt = turtle.RawTurtle(canvas)
@@ -38,10 +37,8 @@ def printChart() :
         numStr = 1
     else :
         numStr = int(entry.get())
-    print("num string: ", numStr)
     percents = percentages.recalculatePercentages(numStr)
 
-    #def recalculatePercentages(numStr) :
 
 
     ###drawing the chart! Where the magic happens
@@ -80,8 +77,6 @@ button = Button(frame, text="Submit", command=printChart)
 button.pack()
 frame.pack()
 canvas.pack()
-
-
 
 ###keeps root window visible and main program running till we close it
 root.mainloop()
