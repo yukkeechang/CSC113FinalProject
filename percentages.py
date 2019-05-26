@@ -67,22 +67,49 @@ def getPercentages() :
     for w in percents :
         print(w, percents[w])
     return percents
-
+    
+numStr = 1
 ###recalculating new dictionary based on input given
-# def recalculatePercentages() :
-#     numStr = 2
-#     ###we want numStr's pie slices and the rest are others
-#     #6-2
-#     others = len(percents) - numStr
-#     orderedDict = OrderedDict()
-#     for percent in percents :
-#         orderedDict[percent] = percents[percent]
-#     otherValues = 0
-#     vals = 0
-#     for vals in orderedDict[:3] :
-#         print(vals)
-#
-#     print(otherValues)
-#
-#
-# recalculatePercentages()
+def recalculatePercentages(numStr) :
+    #if numStr == None : 1
+    ###we want numStr's pie slices and the rest are others
+
+    others = len(percents) - numStr
+
+    ###order the dictionary
+    orderedDict = {}
+    orderedDict = OrderedDict()
+    for percent in percents :
+        orderedDict[percent] = percents[percent]
+
+
+    print("ITS STILL NOT ORDERED")
+    for order in orderedDict :
+        ###setting the key to counter of numbers and value to ordered dict's values but should be keys
+        print(order, orderedDict[order])
+
+
+    ###index dict holds key: counter, value: key from old dict
+    indexDicts = {}
+    counter = 0
+    for order in orderedDict :
+        ###setting the key to counter of numbers and value to ordered dict's values but should be keys
+        indexDicts[counter] = order
+        counter += 1
+
+
+    ###how to delete by value
+    for blah in range(others):
+        print(blah, indexDicts[blah])
+        del orderedDict[indexDicts[blah]]
+
+    ###summing the percentages of relevant pie slices to find irrelevant pie slice percentage
+    sum = 0
+    for order in orderedDict :
+        sum += orderedDict[order]
+    otherPercent = 100-sum
+    orderedDict["others"] = otherPercent
+
+    return orderedDict
+
+recalculatePercentages(numStr)

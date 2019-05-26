@@ -25,8 +25,9 @@ entry = Entry(root)
 entry.pack()
 
 def printChart() :
+
     ###getting dictionary of character and their percentage frequency from percentages.py module
-    percents = percentages.getPercentages()
+
     ###puts turtle module in tkinter using canvas method
     turt = turtle.RawTurtle(canvas)
     ###set position for piechart
@@ -38,6 +39,7 @@ def printChart() :
     else :
         numStr = int(entry.get())
     print("num string: ", numStr)
+    percents = percentages.recalculatePercentages(numStr)
 
     #def recalculatePercentages(numStr) :
 
@@ -61,19 +63,19 @@ def printChart() :
 
     turt.sety(-100)
     ###Adding label to pie slices
+
     for k, percent in percents.items() :
         turt.circle(100, percent*360/100/2)
         turt.write(k, align="right", font="Avenir")
         turt.write('%s %%' %percent, align="left", font="Avenir")
         turt.circle(100, percent*360/100/2)
 
+    ###COMMENT THIS OUT if you don't want the pie chart to disapear immediately
+    turt.reset()
 
-def triggerChart() :
-    printChart()
-    print(entry.get())
 
 ###BUTTON
-button = Button(frame, text="Submit", command=triggerChart)
+button = Button(frame, text="Submit", command=printChart)
 ###pack (placing) and positions widgits inside the window (order matters)
 button.pack()
 frame.pack()
