@@ -1,3 +1,6 @@
+from collections import OrderedDict
+
+
 ###read file and turn contents into a string
 file  = open("words.txt", "r")
 x = file.read()
@@ -59,3 +62,22 @@ def getPercentages() :
     for w in percents :
         print(w, percents[w])
     return percents
+
+###recalculating new dictionary based on input given
+def recalculatePercentages() :
+    numStr = 2
+    ###we want numStr's pie slices and the rest are others
+    #6-2
+    others = len(percents) - numStr
+    orderedDict = OrderedDict()
+    for percent in percents :
+        orderedDict[percent] = percents[percent]
+    otherValues = 0
+    vals = 0
+    for vals in orderedDict[:3] :
+        print(vals)
+
+    print(otherValues)
+
+
+recalculatePercentages()
