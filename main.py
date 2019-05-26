@@ -65,7 +65,6 @@ def printChart() :
         turt.circle(100, percent*360/100/2)
         turt.write(k, align="right", font="Avenir")
         turt.write('%s %%' %percent, align="left", font="Avenir")
-
         turt.circle(100, percent*360/100/2)
 
 

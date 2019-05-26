@@ -1,4 +1,5 @@
 from collections import OrderedDict
+import re
 
 
 ###read file and turn contents into a string
@@ -39,8 +40,8 @@ while(i < len(x)) :
         print("NEW LINE")
         characters["whitespace"] += 1
         i = i+1
-    #TODO: Find all asci symbols
-    elif(x[i] == '.' or x[i] ==  '/' or x[i] ==  '!' or x[i] == '@') :
+    ###using regex to find all symbols
+    elif(re.findall('[^A-Za-z0-9]', x[i])) :
         characters["symbols"] += 1
         i = i+1
     ###if not in dictionary already
