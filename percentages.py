@@ -7,7 +7,7 @@ x = file.read()
 file.close()
 
 ###load all chars into characters
-characters = {"whitespace": 0}
+characters = {"whitespace": 0, "symbols": 0}
 i = 0
 
 
@@ -38,6 +38,10 @@ while(i < len(x)) :
     elif (x[i] == '\n') :
         print("NEW LINE")
         characters["whitespace"] += 1
+        i = i+1
+    #TODO: Find all asci symbols
+    elif(x[i] == '.' or x[i] ==  '/' or x[i] ==  '!' or x[i] == '@') :
+        characters["symbols"] += 1
         i = i+1
     ###if not in dictionary already
     else :

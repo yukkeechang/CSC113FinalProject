@@ -59,6 +59,15 @@ def printChart() :
         turt.end_fill()
         turt.setposition(position)
 
+    turt.sety(-100)
+    ###Adding label to pie slices
+    for k, percent in percents.items() :
+        turt.circle(100, percent*360/100/2)
+        turt.write(k, align="right", font="Avenir")
+        turt.write('%s %%' %percent, align="left", font="Avenir")
+
+        turt.circle(100, percent*360/100/2)
+
 
 def triggerChart() :
     printChart()
@@ -73,5 +82,5 @@ canvas.pack()
 
 
 
-#keeps root window visible and main program running till we close it
+###keeps root window visible and main program running till we close it
 root.mainloop()
